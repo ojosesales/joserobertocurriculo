@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - José Roberto Santos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img-wrapper {
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #1a1a2e;
+        }
+
+        .profile-section h1 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .profile-section .subtitle {
+            font-size: 14px;
+            color: #a8b2d1;
+            font-weight: 300;
+        }
+
+        .sidebar-section {
+            margin-bottom: 35px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-title i {
+            font-size: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .contact-item i {
+            color: #667eea;
+            font-size: 16px;
+            margin-top: 2px;
+        }
+
+        .about-text {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #ccd6f6;
+          
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            font-size: 13px;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: #ccd6f6;
+        }
+
+        .skills-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 18px;
+        }
+
+        .main-content {
+            padding: 50px 45px;
+            background: #f8f9fa;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            font-size: 26px;
+            color: #667eea;
+        }
+
+        .objective-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            font-size: 15px;
+            line-height: 1.8;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .experience-item {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .experience-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .duration {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .experience-item p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 18px 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .course-card i {
+            font-size: 24px;
+            color: #667eea;
+        }
+
+        .course-card span {
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                padding: 30px 25px;
+            }
+
+            .main-content {
+                padding: 35px 25px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-img-wrapper">
+                    <!-- SUA FOTO AQUI -->
+                    <img src="./1938.png.png" alt="José Roberto Santos" class="profile-img">
+                </div>
+                <h1>José Roberto Santos</h1>
+                <p class="subtitle">Marketing, Design & Criação de Conteúdo</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">
+                    <i class="fas fa-address-card"></i>
+                    Contato
+                </h2>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(66) 9 9255-4949</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cuiabá, MT - Brasil</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-user"></i>
+                    <span>23 anos, Solteiro, Brasileiro</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">
+                    <i class="fas fa-user-circle"></i>
+                    Sobre Mim
+                </h2>
+                <p class="about-text">
+    Profissional de 23 anos, focado em trabalho em equipe, paciente, com tomada rápida de decisão, aprendizado ágil, adaptabilidade, honestidade, criatividade, comprometimento, empatia e liderança.
+</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title">
+                    <i class="fas fa-star"></i>
+                    Competências
+                </h2>
+                <ul class="skills-list">
+                    <li>Trabalho em equipe</li>
+                    <li>Liderança</li>
+                    <li>Criatividade</li>
+                    <li>Adaptabilidade</li>
+                    <li>Tomada de decisão</li>
+                    <li>Comprometimento</li>
+                    <li>Empatia</li>
+                    <li>Aprendizado rápido</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-bullseye"></i>
+                    Objetivo Profissional
+                </h2>
+                <div class="objective-box">
+                    Busco uma oportunidade para aplicar minhas habilidades em marketing, design e atendimento, 
+                    contribuindo para o crescimento da empresa e para o meu desenvolvimento profissional.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Experiência Profissional
+                </h2>
+
+                <div class="experience-item">
+                    <h3>Gestor de Marketing</h3>
+                    <p class="duration">Grupo Ferraço | 1 ano (PJ)</p>
+                    <p>Gestão de estratégias de marketing, planejamento de campanhas, análise de resultados e suporte à área comercial.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Assistente de Marketing</h3>
+                    <p class="duration">1 ano (PJ)</p>
+                    <p>Auxílio em campanhas digitais, criação de conteúdos, gestão de redes sociais e apoio em ações promocionais.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Designer & Edição de Vídeo</h3>
+                    <p class="duration">Freelancer / PJ – em atuação</p>
+                    <p>Criação de peças visuais, edição de vídeos (After Effects) e conteúdo para redes sociais e campanhas pagas.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Conferente</h3>
+                    <p class="duration">Grupo Gritsch | 6 meses</p>
+                    <p>Conferência de mercadorias, organização de estoque e apoio logístico.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Estágio em Direito Tributário</h3>
+                    <p class="duration">Prefeitura | 5 meses</p>
+                    <p>Atividades administrativas, organização de documentos e suporte na área tributária.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Recepcionista de Hotel</h3>
+                    <p class="duration">Hotel Piratininga | 2 meses + diárias</p>
+                    <p>Atendimento ao cliente, check-in/check-out, reservas e apoio às demandas do hotel.</p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Controle de Estoque</h3>
+                    <p class="duration">Mega Som - Atacadão (Terceirizada)</p>
+                    <p>Organização de estoque, inventário e reposição de mercadorias.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Cursos & Qualificações
+                </h2>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <i class="fas fa-user-tie"></i>
+                        <span>Assistente Administrativo</span>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-code"></i>
+                        <span>Informática Avançada para Programação C++</span>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Tráfego Pago – Meta Ads & Google Ads</span>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-language"></i>
+                        <span>Inglês</span>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-video"></i>
+                        <span>Design & Edição de Vídeo (After Effects)</span>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-camera"></i>
+                        <span>Fotografia (esportiva e retrato)</span>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-file-word"></i>
+                        <span>Pacote Office Completo</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
